@@ -3,66 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Wizer — barcha havolalar</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --bg-1:#161c24;
-  --bg-2:#232d3a;
-  --card:#1a212a;
-  --card-border:rgba(255,255,255,0.07);
-  --accent:#e0a877;
-  --accent-soft:rgba(224,168,119,0.16);
-  --text:#f4efe9;
-  --text-dim:#9aa4ae;
-  --btn:#212a35;
-  --btn-hover:#2b3644;
-}
 
 *{
   box-sizing:border-box;
 }
 
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(14px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@keyframes iconGlow{
-  0%,100%{
-    box-shadow:0 0 6px rgba(255,255,255,0.25);
-    background:rgba(255,255,255,0.10);
-  }
-
-  50%{
-    box-shadow:0 0 18px rgba(255,255,255,0.55);
-    background:rgba(255,255,255,0.22);
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  *{
-    animation:none !important;
-  }
+:root{
+  --bg1:#161c24;
+  --bg2:#232d3a;
+  --card:#1a212a;
+  --button:#212a35;
+  --button-hover:#2b3644;
+  --text:#f4efe9;
+  --muted:#9aa4ae;
 }
 
 body{
+
   margin:0;
+
   min-height:100vh;
 
-  font-family:'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color:var(--text);
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+  padding:24px 16px 32px;
 
   background:
+
     radial-gradient(
       circle at 25% 10%,
       rgba(160,180,200,0.10),
@@ -77,428 +59,395 @@ body{
 
     linear-gradient(
       160deg,
-      var(--bg-1),
-      var(--bg-2)
+      var(--bg1),
+      var(--bg2)
     );
 
-  color:var(--text);
-
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-
-  padding:24px 16px 32px;
-
-  position:relative;
-  overflow-x:hidden;
 }
 
 .card{
+
   width:100%;
+
   max-width:560px;
-
-  background:rgba(255,255,255,0.03);
-
-  border:1px solid var(--card-border);
-  border-radius:34px;
 
   padding:34px 38px 40px;
 
-  backdrop-filter:blur(14px);
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:34px;
 
   box-shadow:
     0 20px 60px rgba(0,0,0,0.35);
 
-  position:relative;
-  z-index:1;
-}
+  backdrop-filter:blur(14px);
 
-.top-row{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  margin-bottom:8px;
-}
-
-.share-btn{
-  width:42px;
-  height:42px;
-
-  border-radius:50%;
-
-  background:rgba(255,255,255,0.06);
-
-  border:none;
-
-  color:var(--text-dim);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  cursor:pointer;
-
-  transition:
-    background .2s ease,
-    transform .2s ease;
-}
-
-.share-btn:hover{
-  background:rgba(255,255,255,0.12);
-  color:var(--text);
-  transform:scale(1.08);
-}
-
-.avatar-wrap{
-  position:relative;
-
-  width:136px;
-
-  margin:10px auto 14px;
 }
 
 .avatar{
-  width:136px;
-  height:136px;
-
-  border-radius:50%;
 
   display:block;
 
+  width:136px;
+
+  height:136px;
+
+  margin:10px auto 16px;
+
   object-fit:cover;
 
-  border:none;
+  border-radius:50%;
 
-  position:relative;
-  z-index:1;
 }
 
 h1{
+
+  margin:0 0 10px;
+
   text-align:center;
 
   font-size:30px;
 
   font-weight:700;
 
-  margin:0 0 8px;
-
-  letter-spacing:0.2px;
-
-  color:#ffffff;
 }
 
 .bio{
+
+  margin:0 auto 22px;
+
+  max-width:440px;
+
   text-align:center;
 
-  color:var(--text-dim);
+  color:var(--muted);
 
   font-size:17px;
 
-  line-height:1.4;
+  line-height:1.5;
 
-  margin:0 0 18px;
-
-  padding:0 8px;
 }
 
 .socials{
+
   display:flex;
 
   justify-content:center;
 
-  gap:14px;
+  gap:22px;
 
-  margin-bottom:20px;
+  margin-bottom:24px;
+
 }
 
 .socials a{
-  width:46px;
-  height:46px;
-
-  border-radius:50%;
-
-  background:transparent;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
-  color:var(--text);
+  width:46px;
+
+  height:46px;
+
+  color:white;
 
   text-decoration:none;
 
-  transition:
-    transform .2s ease,
-    color .2s ease;
+  font-size:24px;
+
+  border-radius:50%;
+
+  transition:0.25s;
+
 }
 
 .socials a:hover{
-  transform:translateY(-3px) scale(1.025);
 
-  color:#ffffff;
+  transform:translateY(-4px) scale(1.08);
 
-  animation:iconGlow 1.3s ease-in-out infinite;
-}
+  background:rgba(255,255,255,0.12);
 
-.socials svg{
-  width:20px;
-  height:20px;
 }
 
 .links{
+
   display:flex;
 
   flex-direction:column;
 
-  gap:14px;
+  gap:16px;
+
 }
 
-.link-btn{
+.link{
+
   display:flex;
 
   align-items:center;
 
-  gap:14px;
+  gap:16px;
 
-  background:var(--btn);
+  width:100%;
 
-  border-radius:20px;
+  min-height:72px;
 
-  padding:17px 22px;
-
-  text-decoration:none;
+  padding:14px 20px;
 
   color:var(--text);
 
-  font-weight:600;
-
-  font-size:17px;
-
-  transition:
-    background .22s ease,
-    transform .22s ease,
-    box-shadow .22s ease,
-    border-color .22s ease;
+  background:var(--button);
 
   border:1px solid transparent;
 
-  position:relative;
+  border-radius:20px;
+
+  text-decoration:none;
+
+  transition:0.25s;
+
 }
 
-.link-btn:hover{
-  background:var(--btn-hover);
+.link:hover{
 
-  transform:translateY(-3px) scale(1.025);
+  background:var(--button-hover);
 
-  border-color:rgba(255,255,255,0.25);
+  transform:translateY(-3px);
+
+  border-color:rgba(255,255,255,0.18);
 
   box-shadow:
-    0 10px 24px rgba(0,0,0,0.28),
-    0 0 16px rgba(255,255,255,0.10);
+    0 10px 25px rgba(0,0,0,0.25);
+
 }
 
-.link-btn:hover .link-icon{
-  animation:iconGlow 1.3s ease-in-out infinite;
-}
-
-.link-icon{
-  width:44px;
-  height:44px;
-
-  border-radius:13px;
-
-  background:transparent;
+.icon{
 
   display:flex;
 
   align-items:center;
+
   justify-content:center;
 
+  width:44px;
+
+  height:44px;
+
   flex-shrink:0;
+
+  font-size:22px;
+
 }
 
-.link-icon svg{
-  width:20px;
-  height:20px;
-}
+.link-text{
 
-.link-label{
   flex:1;
 
   text-align:center;
 
   margin-right:44px;
-}
 
-.reveal{
-  opacity:0;
+  font-size:18px;
 
-  animation:
-    fadeUp 0.6s ease forwards;
-}
+  font-weight:600;
 
-.reveal-1{
-  animation-delay:0.05s;
-}
-
-.reveal-2{
-  animation-delay:0.15s;
-}
-
-.reveal-3{
-  animation-delay:0.25s;
-}
-
-.reveal-4{
-  animation-delay:0.35s;
-}
-
-.reveal-5{
-  animation-delay:0.45s;
-}
-
-.reveal-6{
-  animation-delay:0.53s;
-}
-
-.reveal-7{
-  animation-delay:0.61s;
 }
 
 footer{
+
+  margin-top:26px;
+
   text-align:center;
 
-  margin-top:24px;
+  color:var(--muted);
 
-  color:var(--text-dim);
+  font-size:13px;
 
-  font-size:12px;
-
-  opacity:0.6;
 }
 
-@media (max-width:600px){
+@media(max-width:600px){
 
   body{
-    padding:14px 10px 20px;
+
+    padding:12px 10px 20px;
+
   }
 
   .card{
-    max-width:100%;
 
-    padding:26px 20px 30px;
+    padding:26px 18px 30px;
 
     border-radius:28px;
-  }
 
-  .avatar-wrap{
-    width:120px;
-
-    margin:6px auto 12px;
   }
 
   .avatar{
+
     width:120px;
+
     height:120px;
+
   }
 
   h1{
+
     font-size:26px;
+
   }
 
   .bio{
+
     font-size:15px;
+
   }
 
-  .link-btn{
-    padding:15px 18px;
+  .link{
+
+    min-height:64px;
+
+    padding:12px 16px;
+
+  }
+
+  .link-text{
 
     font-size:16px;
-  }
 
-  .link-icon{
-    width:40px;
-    height:40px;
-  }
-
-  .link-label{
     margin-right:40px;
+
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
 <div class="card">
 
-  <!-- Profil rasmi -->
-  <div class="avatar-wrap reveal reveal-1">
-    <img
-      class="avatar"
-      src="YOUR_IMAGE_URL"
-      alt="Profile photo"
-    >
-  </div>
+  <!-- PROFIL RASMI -->
+  <img
+    class="avatar"
+    src="https://i.imgur.com/REPLACE.jpg"
+    alt="Wizer"
+  >
 
-  <!-- Ism -->
-  <h1 class="reveal reveal-2">
-    Sizning ismingiz
+
+  <!-- ISM -->
+  <h1>
+    Wizer
   </h1>
 
-  <!-- Bio -->
-  <p class="bio reveal reveal-3">
-    Sizning qisqa bio matningiz shu yerda bo‘ladi.
+
+  <!-- BIO -->
+  <p class="bio">
+    Barcha rasmiy ijtimoiy tarmoqlarimni shu yerda topishingiz mumkin.
   </p>
 
-  <!-- Ijtimoiy tarmoqlar -->
-  <div class="socials reveal reveal-4">
 
-    <a href="#" aria-label="Instagram">
-      Instagram
+  <!-- IJTIMOIY TARMOQLAR -->
+  <div class="socials">
+
+    <a
+      href="https://instagram.com/"
+      target="_blank"
+      title="Instagram"
+    >
+      📸
     </a>
 
-    <a href="#" aria-label="Telegram">
-      Telegram
+    <a
+      href="https://youtube.com/"
+      target="_blank"
+      title="YouTube"
+    >
+      ▶️
     </a>
 
-    <a href="#" aria-label="YouTube">
-      YouTube
+    <a
+      href="https://t.me/"
+      target="_blank"
+      title="Telegram"
+    >
+      ✈️
     </a>
 
   </div>
 
-  <!-- Linklar -->
+
+  <!-- ASOSIY LINK -->
+
   <div class="links">
 
-    <a href="#" class="link-btn reveal reveal-5">
-      <div class="link-icon">🔗</div>
-      <div class="link-label">
-        Mening asosiy havolam
-      </div>
-    </a>
+    <a
+      class="link"
+      href="https://youtube.com/"
+      target="_blank"
+    >
 
-    <a href="#" class="link-btn reveal reveal-6">
-      <div class="link-icon">📱</div>
-      <div class="link-label">
-        Instagram
+      <div class="icon">
+        ▶️
       </div>
-    </a>
 
-    <a href="#" class="link-btn reveal reveal-7">
-      <div class="link-icon">▶</div>
-      <div class="link-label">
+      <div class="link-text">
         YouTube
       </div>
+
+    </a>
+
+
+    <!-- TELEGRAM -->
+
+    <a
+      class="link"
+      href="https://t.me/"
+      target="_blank"
+    >
+
+      <div class="icon">
+        ✈️
+      </div>
+
+      <div class="link-text">
+        Telegram
+      </div>
+
+    </a>
+
+
+    <!-- INSTAGRAM -->
+
+    <a
+      class="link"
+      href="https://instagram.com/"
+      target="_blank"
+    >
+
+      <div class="icon">
+        📸
+      </div>
+
+      <div class="link-text">
+        Instagram
+      </div>
+
     </a>
 
   </div>
 
+
   <footer>
-    © 2026
+    © 2026 Wizer
   </footer>
 
 </div>
 
 </body>
+
 </html>
